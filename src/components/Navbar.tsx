@@ -5,7 +5,10 @@ import Link from "next/link";
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "Work", href: "/#works" },
+  { label: "Home II", href: "#" },
+  { label: "Home III", href: "#" },
+  { label: "Work I", href: "#" },
+  { label: "Work II", href: "#" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
@@ -16,7 +19,7 @@ export default function Navbar() {
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className="fixed top-5 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-3rem)] max-w-3xl"
+      className="fixed top-5 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-3rem)] max-w-4xl"
     >
       <nav className="flex items-center justify-between bg-white border border-gray-300 rounded-2xl px-6 py-3.5 shadow-sm">
         {/* Logo */}
@@ -24,7 +27,7 @@ export default function Navbar() {
           href="/"
           className="text-gray-900 font-bold text-lg tracking-tight shrink-0"
         >
-          Lazmi
+          Meeko
         </Link>
 
         {/* Nav links */}
@@ -56,16 +59,16 @@ export default function Navbar() {
             </svg>
           </a>
 
-          {/* Grid / Behance stand-in */}
+          {/* Dribbble */}
           <a
-            href="https://behance.net"
+            href="https://dribbble.com"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Behance"
+            aria-label="Dribbble"
             className="flex items-center justify-center w-9 h-9 rounded-lg border border-gray-200 text-gray-600 hover:text-gray-900 hover:border-gray-400 transition-colors"
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M2 4h8a4 4 0 0 1 0 8H2V4Zm0 8h9a4 4 0 0 1 0 8H2v-8Zm12-5h8M14 12h8M14 17h6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none"/>
+              <path d="M12 24C5.385 24 0 18.615 0 12S5.385 0 12 0s12 5.385 12 12-5.385 12-12 12zm10.12-10.74a9.31 9.31 0 0 0-4.908-1.282 17.5 17.5 0 0 0-2.454.195 18.732 18.732 0 0 1 3.513 5.485c2.474-1.127 3.978-3.514 3.849-4.398zm-1.89-6.38a9.418 9.418 0 0 0-3.69-3.328 17.065 17.065 0 0 0-3.14 5.926c3.21-.29 5.86.326 6.83.732zm-12.825-.398a15.228 15.228 0 0 1 2.875-5.592A9.458 9.458 0 0 0 3.013 9.4c1.173-.082 2.685.034 4.407.422zM2.08 13.88a9.435 9.435 0 0 0 5.498 7.64c-.33-2.616-1.558-5.333-3.626-7.85-.236.035-.47.078-.71.127-.4.07-.8.15-1.162.246V13.88zm8.685 8.01a15.828 15.828 0 0 0 1.258-5.467 17.653 17.653 0 0 0-5.836-1.042c1.785 2.502 2.923 5.178 3.32 6.51zm3.844-.993c-.495-1.745-1.79-4.57-3.606-7.14a19.78 19.78 0 0 1 2.378-.17 10.976 10.976 0 0 1 4.542 1.135c-.93 2.766-3.32 6.175-3.314 6.175z" />
             </svg>
           </a>
 

@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
 
 /* ─── Floating hero decorations ─── */
 function PenNibIcon() {
@@ -285,13 +286,21 @@ export default function HeroQuickLinks() {
           >
             Hello!{" "}
             <span
-              className="inline-block align-middle mx-2 rounded-full bg-pink-200 border-2 border-pink-300"
+              className="inline-block align-middle mx-2 rounded-full bg-pink-200 border-2 border-pink-300 overflow-hidden relative"
               style={{
                 width: "clamp(3rem,7vw,5rem)",
                 height: "clamp(3rem,7vw,5rem)",
               }}
-            />
-            {" "}I&apos;m Lazmi,
+            >
+              <Image
+                src="/images/lazmi-image.jpg"
+                alt="Meeko"
+                fill
+                className="object-cover scale-150 origin-[50%_25%]"
+                priority
+              />
+            </span>
+            {" "}I&apos;m Meeko,
             <br />
             a product designer.
           </motion.h1>

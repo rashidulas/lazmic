@@ -125,7 +125,7 @@ export default function CTAFooter() {
 
         {/* Footer bar */}
         <div className="w-full mt-28 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-gray-600">
-          <span>© Lazmi Chowdhury. All rights reserved.</span>
+          <span>© Meeko by elemis. Powered by Framer.</span>
           <div className="flex gap-6">
             <Link href="/#works" className="hover:text-white transition-colors">
               Portfolio
