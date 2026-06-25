@@ -70,70 +70,37 @@ function ZigzagBanner() {
 
 /* ─────────────────────────────────────────
    Yellow 4-lobe organic blob (photo frame)
-   Built by stacking 4 corner-circle bumps
-   on top of a rounded-square base.
+
+   Built from the UNION of 4 equal circles:
+     r = 85px
+     TL centre: (85, 90)   TR: (185, 90)
+     BL centre: (85, 250)  BR: (185, 250)
+
+   Outer-boundary intersection points:
+     Top    TL∩TR: (135, 30)
+     Right  TR∩BR: (214, 170)
+     Bottom BL∩BR: (135, 310)
+     Left   TL∩BL:  (56, 170)
+
+   The path traces one arc per lobe (clockwise,
+   small-arc = 0, sweep = 1).
 ───────────────────────────────────────── */
+const BLOB_PATH =
+  "M 135 30 A 85 85 0 0 1 214 170 A 85 85 0 0 1 135 310 A 85 85 0 0 1 56 170 A 85 85 0 0 1 135 30 Z";
+
 function YellowBlob({ children }: { children: React.ReactNode }) {
-  const yellow = "#f5ca38";
-  const W = 270;  // blob width
-  const H = 340;  // blob height
-  const lobe = 72; // corner lobe circle diameter
-
   return (
-    <div className="relative" style={{ width: W, height: H }}>
-      {/* Base rounded-rectangle fills the center */}
-      <div
-        className="absolute"
-        style={{
-          background: yellow,
-          inset: lobe / 2,
-          borderRadius: "20px",
-        }}
-      />
-
-      {/* Four corner-lobe circles */}
-      {[
-        { top: 0,         left: 0          }, // top-left
-        { top: 0,         left: W - lobe   }, // top-right
-        { top: H - lobe,  left: 0          }, // bottom-left
-        { top: H - lobe,  left: W - lobe   }, // bottom-right
-      ].map((pos, i) => (
-        <div
-          key={i}
-          className="absolute rounded-full"
-          style={{
-            width:  lobe,
-            height: lobe,
-            background: yellow,
-            top:  pos.top,
-            left: pos.left,
-          }}
-        />
-      ))}
-
-      {/* Photo clipped to the same blob shape via clip-path */}
-      <div
-        className="absolute overflow-hidden"
-        style={{
-          inset: 0,
-          clipPath: `
-            path('
-              M ${lobe / 2} 0
-              H ${W - lobe / 2}
-              Q ${W} 0 ${W} ${lobe / 2}
-              V ${H - lobe / 2}
-              Q ${W} ${H} ${W - lobe / 2} ${H}
-              H ${lobe / 2}
-              Q 0 ${H} 0 ${H - lobe / 2}
-              V ${lobe / 2}
-              Q 0 0 ${lobe / 2} 0
-              Z
-            ')
-          `,
-        }}
-      >
-        {children}
-      </div>
+    <div
+      style={{
+        width: 270,
+        height: 340,
+        background: "#f5ca38",
+        clipPath: `path('${BLOB_PATH}')`,
+        position: "relative",
+        overflow: "hidden",
+      }}
+    >
+      {children}
     </div>
   );
 }
@@ -157,23 +124,14 @@ export default function Capabilities() {
 
             {/* Yellow blob + photo */}
             <YellowBlob>
-              {/* Swap src for /images/lazmi-photo.jpg once you have it */}
-              <div className="w-full h-full bg-[#f5ca38] flex items-end justify-center">
-                <div
-                  className="w-full h-[95%] relative"
-                  style={{ backgroundSize: "cover", backgroundPosition: "center top" }}
-                >
-                  {/* Placeholder gradient — replace with <Image> */}
-                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 opacity-30">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none"
-                      stroke="#1c1c1c" strokeWidth="1.5">
-                      <circle cx="12" cy="8" r="4" />
-                      <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
-                    </svg>
-                    <span className="text-xs text-gray-700 font-medium">Add your photo</span>
-                  </div>
-                </div>
-              </div>
+              <Image
+                src="/images/lazmi-photo.jpg"
+                alt="Lazmi Chowdhury"
+                fill
+                className="object-cover"
+                style={{ objectPosition: "center 10%" }}
+                priority
+              />
             </YellowBlob>
 
             {/* Spinning freelance badge — bottom-left of blob */}
