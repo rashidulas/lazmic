@@ -282,9 +282,9 @@ export default function HeroQuickLinks() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.7 }}
-            className="text-[clamp(3rem,8vw,5.5rem)] font-extrabold text-gray-900 leading-[1.1] tracking-tight"
+            className="text-[clamp(3rem,8vw,5.5rem)] font-medium text-gray-900 leading-[1.1] tracking-tighter"
           >
-            Hello!{" "}
+            Hello<span className="italic">!</span>{" "}
             <span
               className="inline-block align-middle mx-2 rounded-full bg-pink-200 border-2 border-pink-300 overflow-hidden relative"
               style={{

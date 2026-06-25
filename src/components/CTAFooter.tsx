@@ -49,7 +49,7 @@ export default function CTAFooter() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="text-5xl md:text-7xl font-extrabold leading-tight mb-8"
+          className="text-5xl md:text-7xl font-medium leading-tight mb-8 tracking-tighter"
         >
           Let&apos;s talk about
           <br />

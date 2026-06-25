@@ -120,7 +120,6 @@ export default function ContactForm() {
   return (
     <>
       <Navbar />
-
       {/* Purple hero header */}
       <div className="relative bg-[#c9c1ee] px-6 pt-40 pb-36 text-center overflow-hidden">
         {/* Floating Rainbow Sticker (Left) */}
@@ -148,7 +147,7 @@ export default function ContactForm() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.6 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-[1.15] tracking-tight mb-6"
+            className="text-4xl md:text-5xl lg:text-6xl font-medium text-gray-900 leading-[1.15] tracking-tighter mb-6"
           >
             How can I help you with
             <br />
@@ -199,7 +198,7 @@ export default function ContactForm() {
               {/* Left Column: Let's get in touch & info stack */}
               <div className="md:col-span-5 flex flex-col gap-10">
                 <div className="flex flex-col gap-4">
-                  <h2 className="text-3xl font-extrabold text-gray-900 leading-tight">
+                  <h2 className="text-3xl font-medium text-gray-900 leading-tight tracking-tight">
                     Let&apos;s get in touch
                   </h2>
                   <p className="text-gray-500 text-sm leading-relaxed max-w-sm">

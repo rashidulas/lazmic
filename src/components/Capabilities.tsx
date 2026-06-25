@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { skills } from "@/lib/data";
 
 /* ─────────────────────────────────────────
@@ -10,40 +9,46 @@ import { skills } from "@/lib/data";
  ───────────────────────────────────────── */
 function FreelanceBadge() {
   return (
-    <div className="relative w-[120px] h-[120px] rounded-full bg-[#cbdcf7] border border-[#1c1c1c] flex items-center justify-center shadow-sm select-none">
-      {/* Spinning ring of text */}
+    <div className="relative w-[96px] h-[96px] select-none drop-shadow-sm">
       <svg
         viewBox="0 0 100 100"
-        className="w-full h-full animate-spin-slow"
+        className="w-full h-full"
         aria-hidden
       >
+        {/* 1. Outermost circle with soft blue fill & black stroke */}
+        <circle cx="50" cy="50" r="48.5" fill="#cbdcf7" stroke="#1c1c1c" strokeWidth="1.3" />
+        
+        {/* 2. Text path circle definition */}
         <defs>
           <path
-            id="fc-circle"
-            d="M 50,50 m -36.5,0 a 36.5,36.5 0 1,1 73,0 a 36.5,36.5 0 1,1 -73,0"
+            id="fc-circle-path"
+            d="M 50,50 m -38,0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0"
           />
         </defs>
-        {/* Inner circle line behind/below the text */}
-        <circle cx="50" cy="50" r="28.5" fill="none" stroke="#1c1c1c" strokeWidth="0.8" />
-        <text fill="#1c1c1c" fontSize="7.6" fontWeight="600" letterSpacing="1.5">
-          <textPath href="#fc-circle">
-            I AM AVAILABLE · FOR FREELANCE ·{" "}
-          </textPath>
-        </text>
+
+        {/* 3. Spinning text path */}
+        <g className="animate-spin-slow origin-center">
+          <text fill="#1c1c1c" fontSize="6.8" fontWeight="600" letterSpacing="1.8">
+            <textPath href="#fc-circle-path" startOffset="0%">
+              - I AM AVAILABLE - FOR FREELANCE{" "}
+            </textPath>
+          </text>
+        </g>
+
+        {/* 4. Innermost circle outlining the white center */}
+        <circle cx="50" cy="50" r="21" fill="white" stroke="#1c1c1c" strokeWidth="1.3" />
       </svg>
 
-      {/* Static centre — envelope icon */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="w-[50px] h-[50px] rounded-full bg-white border border-[#1c1c1c] shadow flex items-center justify-center">
-          <svg
-            width="20" height="20" viewBox="0 0 24 24"
-            fill="none" stroke="#1c1c1c"
-            strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"
-          >
-            <rect x="2" y="4" width="20" height="16" rx="3" />
-            <path d="M2 4l10 9 10-9" />
-          </svg>
-        </div>
+      {/* Static center envelope icon */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
+        <svg
+          width="12" height="12" viewBox="0 0 24 24"
+          fill="none" stroke="#1c1c1c"
+          strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"
+        >
+          <rect x="2" y="4" width="20" height="16" rx="3" />
+          <path d="M2 4l10 9 10-9" />
+        </svg>
       </div>
     </div>
   );
@@ -53,35 +58,33 @@ function FreelanceBadge() {
    Torn-edge Washi Tape component
  ───────────────────────────────────────── */
 function WashiTape() {
-  // A list of scattered triangles pointing upwards
   const triangles = [
-    { x: 18, y: 8 },
-    { x: 42, y: 18 },
-    { x: 68, y: 7 },
-    { x: 92, y: 16 },
-    { x: 114, y: 6 },
-    { x: 138, y: 18 },
-    { x: 162, y: 9 },
-    { x: 30, y: 28 },
-    { x: 55, y: 27 },
-    { x: 80, y: 26 },
-    { x: 104, y: 28 },
-    { x: 128, y: 27 },
-    { x: 152, y: 28 },
+    { x: 20, y: 8 },
+    { x: 48, y: 18 },
+    { x: 76, y: 7 },
+    { x: 104, y: 16 },
+    { x: 130, y: 6 },
+    { x: 158, y: 18 },
+    { x: 186, y: 9 },
+    { x: 34, y: 28 },
+    { x: 62, y: 27 },
+    { x: 90, y: 26 },
+    { x: 118, y: 28 },
+    { x: 146, y: 27 },
+    { x: 174, y: 28 },
   ];
 
   return (
-    <div className="relative w-48 h-9 -rotate-[4deg] drop-shadow-sm select-none">
+    <div className="relative w-56 h-10 -rotate-[4deg] drop-shadow-sm select-none">
       <svg
-        viewBox="0 0 180 36"
+        viewBox="0 0 200 36"
         className="w-full h-full"
         aria-hidden
       >
-        {/* Torn tape body path */}
         <path
           d="M 8 2 
-             L 172 2 
-             L 170 8 L 174 14 L 169 20 L 173 26 L 168 32 L 171 34
+             L 192 2 
+             L 190 8 L 194 14 L 189 20 L 193 26 L 188 32 L 191 34
              L 8 34 
              L 10 28 L 6 22 L 11 16 L 7 10 L 11 4 Z"
           fill="#cbdcf7"
@@ -103,29 +106,25 @@ function WashiTape() {
 }
 
 /* ─────────────────────────────────────────
-   Yellow 6-lobe organic scalloped blob
+   Yellow organic scalloped blob (responsive)
  ───────────────────────────────────────── */
-function YellowBlob({ children }: { children: React.ReactNode }) {
+function YellowBlob() {
   const scallopPath =
-    "M 70 15 L 200 15 A 35 35 0 0 1 235 50 A 45 45 0 0 1 235 130 A 45 45 0 0 1 235 210 A 45 45 0 0 1 235 290 A 35 35 0 0 1 200 325 L 70 325 A 35 35 0 0 1 35 290 A 45 45 0 0 1 35 210 A 45 45 0 0 1 35 130 A 45 45 0 0 1 35 50 A 35 35 0 0 1 70 15 Z";
+    "M 105 30 A 190 190 0 0 1 295 30 A 72 72 0 0 1 350 100 A 72 72 0 0 1 350 220 A 72 72 0 0 1 350 340 A 72 72 0 0 1 350 460 A 72 72 0 0 1 295 500 A 190 190 0 0 1 105 500 A 72 72 0 0 1 50 460 A 72 72 0 0 1 50 340 A 72 72 0 0 1 50 220 A 72 72 0 0 1 50 100 A 72 72 0 0 1 105 30 Z";
 
   return (
-    <div className="relative w-[270px] h-[340px] select-none">
-      {/* Hidden SVG with clip path for image clipping */}
-      <svg className="absolute w-0 h-0" aria-hidden>
+    <div className="relative w-[280px] h-[370px] sm:w-[340px] sm:h-[450px] lg:w-[380px] lg:h-[505px] select-none transition-all duration-300">
+      <svg
+        viewBox="0 0 400 530"
+        className="w-full h-full"
+        aria-hidden
+      >
         <defs>
-          <clipPath id="scallop-clip" clipPathUnits="userSpaceOnUse">
+          <clipPath id="scallop-clip">
             <path d={scallopPath} />
           </clipPath>
         </defs>
-      </svg>
-
-      {/* SVG background and border outline */}
-      <svg
-        viewBox="0 0 270 340"
-        className="absolute inset-0 w-full h-full pointer-events-none z-0"
-        aria-hidden
-      >
+        {/* Yellow background and outline stroke */}
         <path
           d={scallopPath}
           fill="#f5ca38"
@@ -134,18 +133,15 @@ function YellowBlob({ children }: { children: React.ReactNode }) {
           strokeLinecap="round"
           strokeLinejoin="round"
         />
+        {/* Clipped image */}
+        <image
+          href="/images/lazmi-photo.jpg"
+          width="400"
+          height="530"
+          preserveAspectRatio="xMidYMid slice"
+          clipPath="url(#scallop-clip)"
+        />
       </svg>
-
-      {/* Clipped image content container */}
-      <div
-        className="absolute inset-0 z-10"
-        style={{
-          clipPath: "url(#scallop-clip)",
-          WebkitClipPath: "url(#scallop-clip)",
-        }}
-      >
-        {children}
-      </div>
     </div>
   );
 }
@@ -163,21 +159,12 @@ export default function Capabilities() {
           <div className="relative">
 
             {/* Washi tape sits at the very top of the blob */}
-            <div className="absolute top-[-5px] left-1/2 -translate-x-1/2 z-20">
+            <div className="absolute -top-5 left-1/2 -translate-x-1/2 z-20">
               <WashiTape />
             </div>
 
-            {/* Yellow blob + photo */}
-            <YellowBlob>
-              <Image
-                src="/images/lazmi-image.jpg"
-                alt="Meeko"
-                fill
-                className="object-cover"
-                style={{ objectPosition: "center 10%" }}
-                priority
-              />
-            </YellowBlob>
+            {/* Yellow blob SVG + image */}
+            <YellowBlob />
 
             {/* Spinning freelance badge — bottom-left of blob */}
             <motion.div
@@ -185,7 +172,7 @@ export default function Capabilities() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
-              className="absolute bottom-[-16px] left-[-36px] z-20"
+              className="absolute -bottom-6 -left-6 z-20"
             >
               <FreelanceBadge />
             </motion.div>
@@ -202,9 +189,9 @@ export default function Capabilities() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight"
+            className="text-4xl md:text-5xl font-medium text-gray-900 leading-tight tracking-tight"
           >
-            Hey! That’s me.
+            Hey<span className="italic">!</span> That’s me.
           </motion.h2>
 
           {/* Bio paragraphs */}
