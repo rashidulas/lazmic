@@ -60,11 +60,12 @@ export const processSteps = [
 ];
 
 export const skills = [
-  { name: "UI Design", percentage: 95 },
-  { name: "Web Design", percentage: 88 },
-  { name: "Figma", percentage: 92 },
-  { name: "Framer", percentage: 80 },
-  { name: "HTML / CSS", percentage: 85 },
+  { name: "UI Design",    percentage: 95, barColor: "bg-purple-400" },
+  { name: "Web Design",   percentage: 97, barColor: "bg-green-500"  },
+  { name: "Framer",       percentage: 85, barColor: "bg-pink-400"   },
+  { name: "WordPress",    percentage: 80, barColor: "bg-orange-400" },
+  { name: "Photoshop",    percentage: 90, barColor: "bg-emerald-400"},
+  { name: "Illustration", percentage: 65, barColor: "bg-amber-400"  },
 ];
 
 export const serviceTags = [

@@ -14,15 +14,13 @@
 }
 
 .animate-spin-slow {
-  animation: spin-slow 8s linear infinite;
+  animation: spin-slow 10s linear infinite;
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
-  font-family: var(--font-sans, "Plus Jakarta Sans", Arial, sans-serif);
+  font-family: var(--font-sans, "Space Grotesk", Arial, sans-serif);
   background: #ffffff;
   color: #111827;
 }
